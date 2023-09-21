@@ -2,7 +2,7 @@
   <section class="pb-8 lg:pt-4 lg:pb-16">
     <div class="container px-6 lg:px-2">
       <div class="mb-6 lg:mb-8 lg:pl-5">
-        <h3 class="text-gray-50 font-semibold text-base capitalize">Recomendation Cars</h3>
+        <h3 class="text-gray-50 font-semibold text-sm lg:text-base capitalize">Recomendation Cars</h3>
       </div>
       <div class="grid grid-cols-1 gap-5 lg:grid-cols-4 lg:gap-8">
         <card v-for="(car, key) in cars.data" :key="key" :car="car" />

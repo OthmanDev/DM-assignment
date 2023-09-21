@@ -29,8 +29,8 @@
     <section class="pb-6 lg:pb-8">
       <div class="container px-6 lg:px-2">
         <div class="mb-6 lg:mb-8 lg:px-5 flex items-center justify-between">
-          <h3 class="text-gray-50 font-semibold text-base capitalize">Popular Cars</h3>
-          <a href="#" class="text-base font-semibold text-primary capitalize">View all</a>
+          <h3 class="text-gray-50 font-semibold text-sm lg:text-base capitalize">Popular Cars</h3>
+          <a href="#" class="text-sm lg:text-base font-semibold text-primary capitalize">View all</a>
         </div>
         <div class="grid grid-cols-1 gap-5 lg:grid-cols-4 lg:gap-8">
           <card v-for="(car, key) in cars" :key="key" :car="car" />
