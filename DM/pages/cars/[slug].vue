@@ -1,42 +1,42 @@
 <template>
   <div>
-    <section v-if="car" class="pt-8 pb-12">
+    <section v-if="car" class="pt-6 pb-6 lg:pt-8 lg:pb-12">
       <div class="container">
-        <div class="flex items-start justify-between gap-8">
-          <div class="w-492">
-            <div class="grid gap-6">
-              <div class="relative h-360 flex items-center justify-center">
-                <div class="absolute top-0 left-0 w-full p-6 z-10 pb-0">
-                  <h2 class="text-white text-3xl font-semibold mb-4">Sports car with the best design and acceleration</h2>
-                  <p class="text-white text-base font-medium leading-normal">Safety and comfort while driving a <br /> futuristic and elegant sports car</p>
+        <div class="flex items-start justify-between gap-6 lg:gap-8 flex-col lg:flex-row">
+          <div class="w-full lg:w-492">
+            <div class="grid gap-5 lg:gap-6">
+              <div class="relative lg:h-360 flex items-center justify-center">
+                <div class="relative lg:absolute top-0 left-0 w-full p-4 lg:p-6 z-10 pb-44 lg:pb-0">
+                  <h2 class="text-white text-lg lg:text-3xl font-semibold mb-3 lg:mb-4">Sports car with the best design and acceleration</h2>
+                  <p class="text-white text-sm lg:text-base font-medium leading-normal">Safety and comfort while driving a <br class="hidden lg:block"/> futuristic and elegant sports car</p>
                 </div>
                 <div class="bg-primary absolute inset-0 rounded-lg">
                   <img src="~/assets/images/car-details-bg.png" :alt="car.name" loading="lazy" class="w-full h-full rounded-lg object-cover"/>
                 </div>
-                <div class="absolute bottom-2 w-full px-14">
+                <div class="absolute bottom-2 w-full px-10 lg:px-14">
                   <img :src="car.img" :alt="car.name" loading="lazy" />
                 </div>
               </div>
-              <div class="flex items-center gap-6">
-                <div class="flex-1 h-124 rounded-lg flex items-center justify-center relative cursor-pointer p-1 border-2 border-primary">
-                  <div class="bg-primary absolute top-1.5 left-1.5 bottom-1.5 right-1.5 rounded-lg">
+              <div class="flex items-center gap-5 lg:gap-6">
+                <div class="flex-1 h-16 lg:h-124 rounded-lg flex items-center justify-center relative cursor-pointer p-1 border-2 border-primary">
+                  <div class="bg-primary absolute top-1 lg:top-1.5 left-1 lg:left-1.5 bottom-1 lg:bottom-1.5 right-1 lg:right-1.5 rounded-lg">
                     <img src="~/assets/images/car-details-bg.png" :alt="car.name" loading="lazy" class="w-full h-full rounded-lg object-cover"/>
                   </div>
                   <div class="px-2">
                     <img :src="car.img" :alt="car.name" loading="lazy" class="relative"/>
                   </div>
                 </div>
-                <div v-for="(image, key) in car.images" :key="key" class="flex-1 h-124 rounded-lg cursor-pointer">
+                <div v-for="(image, key) in car.images" :key="key" class="flex-1 h-16 lg:h-124 rounded-lg cursor-pointer">
                   <img :src="image.url" :alt="car.name" loading="lazy" class="h-full object-cover rounded-lg"/>
                 </div>
               </div>
             </div>
           </div>
           <div class="flex-1">
-            <div class="bg-white p-6 rounded-xl">
-              <div class="mb-8">
+            <div class="bg-white p-4 lg:p-6 rounded-xl">
+              <div class="mb-6 lg:mb-8">
                 <div class="flex items-center mb-2.5 gap-6">
-                  <h1 class="font-bold text-3xl">{{ car.name }}</h1>
+                  <h1 class="font-bold text-xl lg:text-3xl">{{ car.name }}</h1>
                   <img v-if="isFavorite" src="~/assets/icons/red-heart.svg" alt="DM" loading="lazy"/>
                 </div>
                 <div class="flex items-center gap-2">
@@ -47,32 +47,32 @@
                 </div>
               </div>
               <div>
-                <p class="text-xl font-normal text-gray-100 leading-normal">{{ car.description }}</p>
-                <div class="flex items-center gap-20 mt-8 mb-4">
-                  <div class="flex items-center gap-7">
-                    <span class="text-xl font-normal text-gray-50">Type Car</span>
-                    <span class="text-xl font-semibold text-gray-100">{{ car.type }}</span>
+                <p class="text-base lg:text-xl font-normal text-gray-100 leading-normal">{{ car.description }}</p>
+                <div class="grid grid-cols-2 lg:flex items-center gap-y-4 justify-between lg:gap-x-20 mt-6 lg:mt-8 flex-wrap">
+                  <div class="flex items-center gap-4 lg:gap-7">
+                    <span class="text-sm lg:text-xl font-normal text-gray-50">Type Car</span>
+                    <span class="text-sm lg:text-xl font-semibold text-gray-100">{{ car.type }}</span>
                   </div>
-                  <div class="flex items-center gap-7">
-                    <span class="text-xl font-normal text-gray-50">Capacity</span>
-                    <span class="text-xl font-semibold text-gray-100">{{ car.people }} Person</span>
+                  <div class="flex items-center gap-4 lg:gap-7">
+                    <span class="text-sm lg:text-xl font-normal text-gray-50">Capacity</span>
+                    <span class="text-sm lg:text-xl font-semibold text-gray-100">{{ car.people }} Person</span>
                   </div>
-                  <div class="flex items-center gap-7">
-                    <span class="text-xl font-normal text-gray-50">Gasoline</span>
-                    <span class="text-xl font-semibold text-gray-100">{{ car.gasolineLiter }}L</span>
+                  <div class="flex items-center gap-4 lg:gap-7">
+                    <span class="text-sm lg:text-xl font-normal text-gray-50">Gasoline</span>
+                    <span class="text-sm lg:text-xl font-semibold text-gray-100">{{ car.gasolineLiter }}L</span>
                   </div>
-                </div>
-                <div class="flex items-center gap-7">
-                  <span class="text-xl font-normal text-gray-50">Steering </span>
-                  <span class="text-xl font-semibold text-gray-100">{{ car.kindOfTransition }}</span>
+                  <div class="flex items-center gap-4 lg:gap-7">
+                    <span class="text-sm lg:text-xl font-normal text-gray-50">Steering </span>
+                    <span class="text-sm lg:text-xl font-semibold text-gray-100">{{ car.kindOfTransition }}</span>
+                  </div>
                 </div>
               </div>
-              <div class="flex items-center justify-between mt-20">
+              <div class="flex items-center justify-between mt-6 lg:mt-20">
                 <div class="flex items-center gap-1">
-                  <span class="text-3xl font-bold">${{ car.pricePerDay.toFixed(2) }}/</span>
-                  <span class="text-base font-bold text-gray-50 leading-none pt-1">day</span>
+                  <span class="text-xl lg:text-3xl font-bold">${{ car.pricePerDay.toFixed(2) }}/</span>
+                  <span class="text-sm lg:text-base font-bold text-gray-50 leading-none pt-1">day</span>
                 </div>
-                <button class="bg-primary capitalize px-8 py-4 text-white rounded text-base font-semibold">Rent now</button>
+                <button class="bg-primary capitalize px-8 py-4 text-white rounded text-sm lg:text-base font-semibold">Rent now</button>
               </div>
             </div>
           </div>
