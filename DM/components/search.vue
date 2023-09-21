@@ -1,12 +1,12 @@
 <template>
   <div class="flex-1 relative">
-    <div class="flex items-center border border-gray-0 rounded-full gap-x-5 px-5 h-11">
+    <div class="flex items-center border border-gray-0 rounded-lg gap-x-5 px-5 h-11 lg:rounded-full">
       <img v-if="!isLoading" src="~/assets/icons/search.svg" alt="DM" loading="lazy"/>
       <span v-else class="loading"></span>
       <input @input="search" @focus="openSearch" v-model="query" name="text" class="text-sm font-medium text-gray-100 flex-1 placeholder:text-gray-100 outline-none" placeholder="Search Something Here"/>
     </div>
-    <div v-if="isSearching" class="absolute top-full w-full bg-white z-30 border border-gray-0 mt-1 rounded-xl p-4 max-h-card overflow-y-auto">
-      <div v-if="searchResult.length > 0" class="grid grid-cols-3 gap-4">
+    <div v-if="isSearching" class="absolute top-full w-full bg-white z-30 border border-gray-0 mt-1 rounded-lg lg:rounded-xl p-4 max-h-card overflow-y-auto">
+      <div v-if="searchResult.length > 0" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <card v-for="(car, key) in searchResult" :key="key" :car="car" class="border border-gray-0"/>
       </div>
       <div v-else class="text-center">
