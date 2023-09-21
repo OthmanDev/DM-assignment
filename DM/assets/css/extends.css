@@ -1,0 +1,24 @@
+@layer base {
+  body {
+    @apply bg-body antialiased font-jakarta text-heading;
+  }
+}
+@layer components {
+  .container {
+    @apply max-w-container w-full mx-auto;
+  }
+  .loading {
+    @apply inline-block w-6 h-6 border-2 rounded-full border-primary border-t-transparent;
+    animation: spin .75s ease-in-out infinite;
+  }
+  .loading.inverse {
+    @apply border-white border-t-transparent;
+  }
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
