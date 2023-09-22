@@ -17,7 +17,9 @@ List the technologies, frameworks, and libraries used in the project. For exampl
 ## Getting Started
 
 1. Clone the repository:
-git clone git@github.com:OthmanDev/DM-assignment.git
+```bash
+  git clone git@github.com:OthmanDev/DM-assignment.git
+```
 
 2. Navigate to the project directory:
 cd DM
