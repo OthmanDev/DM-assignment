@@ -19,7 +19,7 @@ The technologies, frameworks, and libraries used in the project. For example:
 
 2. Navigate to the project directory:
 ```bash
-cd DM
+cd DM-assignment
 ```
 
 3. Install dependencies:
