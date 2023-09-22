@@ -1,12 +1,8 @@
 # DM Assignment
 
-## Introduction
-
-Briefly introduce the project, its purpose, and its goals.
-
 ## Technologies Used
 
-List the technologies, frameworks, and libraries used in the project. For example:
+The technologies, frameworks, and libraries used in the project. For example:
 
 - Nuxt.js 3
 - Vue.js 3
