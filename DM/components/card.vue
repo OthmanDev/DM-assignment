@@ -12,20 +12,36 @@
         <img v-else src="~/assets/icons/red-heart.svg" alt="DM" loading="lazy"/>
       </span>
     </div>
-    <div class="py-8 lg:py-16">
-      <div class="relative">
-        <div class="flex items-end justify-center h-100">
-          <NuxtLink :to="`/cars/${car.id}`">
-            <img :src="car.img" :alt="car.name" loading="lazy" />
-          </NuxtLink>
+    <div :class="[ customMobile ? 'flex items-center gap-x-6' : '' ]">
+      <div class="lg:py-16 lg:px-0" :class="[ customMobile ? 'flex-1 py-6 px-4' : 'py-8 px-8' ]">
+        <div class="relative">
+          <div class="flex items-end justify-center h-100">
+            <NuxtLink :to="`/cars/${car.id}`">
+              <img :src="car.img" :alt="car.name" loading="lazy" />
+            </NuxtLink>
+          </div>
+          <div class="absolute -bottom-2 lg:-bottom-4 left-0 w-full">
+            <img src="~/assets/icons/car-shadow.svg" alt="DM" loading="lazy" class="w-full"/>
+          </div>
         </div>
-        <div class="absolute -bottom-2 lg:-bottom-4 left-0 w-full">
-          <img src="~/assets/icons/car-shadow.svg" alt="DM" loading="lazy"/>
+      </div>
+      <div v-if="customMobile" class="items-start justify-between gap-2 lg:hidden flex flex-col w-24">
+        <div class="flex items-center gap-1">
+          <img src="~/assets/icons/gasolin.svg" alt="DM" loading="lazy"/>
+          <span class="text-sm text-gray-50 font-medium leading-none">{{ car.gasolineLiter }} L</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <img src="~/assets/icons/kind-transition.svg" alt="DM" loading="lazy"/>
+          <span class="text-sm text-gray-50 font-medium leading-none">{{ car.kindOfTransition }}</span>
+        </div>
+        <div class="flex items-center gap-1">
+          <img src="~/assets/icons/people.svg" alt="DM" loading="lazy"/>
+          <span class="text-sm text-gray-50 font-medium leading-none">{{ car.people }} People</span>
         </div>
       </div>
     </div>
     <div>
-      <div class="flex items-center justify-between gap-1 mb-6">
+      <div class="items-center justify-between gap-1 mb-6" :class="[ customMobile ? 'hidden lg:flex' : 'flex' ]">
         <div class="flex items-center gap-1">
           <img src="~/assets/icons/gasolin.svg" alt="DM" loading="lazy"/>
           <span class="text-sm text-gray-50 font-medium leading-none">{{ car.gasolineLiter }} L</span>
@@ -54,7 +70,16 @@
   import { useFavoriteStore } from '~/stores/favorite'
   export default {
     name: 'carCard',
-    props: ['car'],
+    props: {
+      car: {
+        type: Object,
+        default: {}
+      },
+      customMobile: {
+        type: Boolean,
+        default: false
+      }
+    },
     setup (props) {
       const favorite = useFavoriteStore()
       function toggleCarToFavorite (car) {

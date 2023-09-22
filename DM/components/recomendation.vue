@@ -1,11 +1,11 @@
 <template>
   <section class="pb-8 lg:pt-4 lg:pb-16">
-    <div class="container px-6 lg:px-2">
+    <div class="container px-6 xl:px-2">
       <div class="mb-6 lg:mb-8 lg:pl-5">
         <h3 class="text-gray-50 font-semibold text-sm lg:text-base capitalize">Recomendation Cars</h3>
       </div>
-      <div class="grid grid-cols-1 gap-5 lg:grid-cols-4 lg:gap-8">
-        <card v-for="(car, key) in cars.data" :key="key" :car="car" />
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 xl:gap-8">
+        <card v-for="(car, key) in cars.data" :key="key" :car="car" :custom-mobile="true" />
       </div>
       <div v-if="loadmore && page < cars.meta.last_page" class="flex items-center justify-center mt-5 lg:mt-14">
         <button @click.prevent="loadMore" class="bg-primary capitalize px-5 py-2.5 text-white rounded text-sm lg:text-base font-semibold inline-flex justify-center items-center">
